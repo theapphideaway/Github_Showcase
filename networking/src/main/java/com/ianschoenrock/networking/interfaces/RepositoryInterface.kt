@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface RepositoryInterface {
     @GET("repositories")
-    fun getRepositoriesResponse(
+    fun getRepositoriesResponseAsync(
         @Query("q") searchItem: String
     ): Deferred<Repository>
 }

@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ianschoenrock.networking.models.Item
 
-class RepositoryAdapter (): RecyclerView.Adapter<RepositoryViewHolder>() {
+class RepositoryAdapter: RecyclerView.Adapter<RepositoryViewHolder>() {
 
     var repositoryList = listOf<Item>()
 
@@ -20,6 +20,9 @@ class RepositoryAdapter (): RecyclerView.Adapter<RepositoryViewHolder>() {
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
         holder.setData(repositoryList[position])
+        holder.itemView.setOnClickListener {
+            println("You clicked: $position")
+        }
     }
 
     fun setRepositories(repositories: List<Item>){

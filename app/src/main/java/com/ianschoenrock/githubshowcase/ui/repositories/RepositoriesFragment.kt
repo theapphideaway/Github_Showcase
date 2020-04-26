@@ -15,6 +15,7 @@ import com.ianschoenrock.githubshowcase.R
 class RepositoriesFragment : Fragment() {
 
     private lateinit var repositoriesViewModel: RepositoriesViewModel
+    private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,20 +23,24 @@ class RepositoriesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_repositories, container, false).apply {
-
-            val recyclerView: RecyclerView = findViewById(R.id.repository_rv)
-            repositoriesViewModel = ViewModelProvider(this@RepositoriesFragment).get(RepositoriesViewModel::class.java)
-            val baseAdapter = RepositoryAdapter()
-            recyclerView.adapter = baseAdapter
-            recyclerView.layoutManager = LinearLayoutManager(context)
-            repositoriesViewModel.repositories.observe(viewLifecycleOwner, Observer{repos ->
-                repos?.let{
-                    baseAdapter.setRepositories(repos.items)
-                }
-            })
-            repositoriesViewModel.getRepositories()
+            recyclerView = findViewById(R.id.repository_rv)
+            initializeRepositoryList()
         }
 
+    }
+
+    fun initializeRepositoryList(){
+
+        repositoriesViewModel = ViewModelProvider(this@RepositoriesFragment).get(RepositoriesViewModel::class.java)
+        val baseAdapter = RepositoryAdapter()
+        recyclerView.adapter = baseAdapter
+        recyclerView.layoutManager = LinearLayoutManager(context)
+        repositoriesViewModel.repositories.observe(viewLifecycleOwner, Observer{repos ->
+            repos?.let{
+                baseAdapter.setRepositories(repos.items)
+            }
+        })
+        repositoriesViewModel.getRepositories()
     }
 
 }

@@ -1,6 +1,5 @@
 package com.ianschoenrock.githubshowcase.ui.repositories
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.ianschoenrock.networking.models.Repository
@@ -18,7 +17,7 @@ class RepositoriesViewModel : ViewModel() {
     fun getRepositories() {
         MainScope().launch(Dispatchers.Main) {
             val repositoriesResponse = repository.getRepositories()
-                .getRepositoriesResponse("Android").await()
+                .getRepositoriesResponseAsync("Android").await()
 
             repositories.postValue(repositoriesResponse)
         }

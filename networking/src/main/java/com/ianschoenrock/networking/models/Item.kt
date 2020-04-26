@@ -1,6 +1,7 @@
 package com.ianschoenrock.networking.models
 
 data class Item(
+    var isSelected: Boolean,
     var archive_url: String,
     var archived: Boolean,
     var assignees_url: String,
