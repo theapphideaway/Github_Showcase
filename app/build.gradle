@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
 apply plugin: 'kotlin-android-extensions'
 
 android {
@@ -52,5 +52,9 @@ dependencies {
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.1'
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
+    kapt  "android.arch.persistence.room:compiler:2.1.0"
+    implementation 'androidx.room:room-runtime:2.2.5'
+    annotationProcessor 'androidx.room:room-compiler:2.2.5'
     api project(':networking')
+    api project(':storage')
 }

@@ -1,2 +1,2 @@
-include ':app', ':networking'
+include ':app', ':networking', ':storage'
 rootProject.name='Github Showcase'

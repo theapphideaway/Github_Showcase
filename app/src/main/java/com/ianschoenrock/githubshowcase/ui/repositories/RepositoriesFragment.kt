@@ -29,7 +29,7 @@ class RepositoriesFragment : Fragment() {
 
     }
 
-    fun initializeRepositoryList(){
+    private fun initializeRepositoryList(){
 
         repositoriesViewModel = ViewModelProvider(this@RepositoriesFragment).get(RepositoriesViewModel::class.java)
         val baseAdapter = RepositoryAdapter()
