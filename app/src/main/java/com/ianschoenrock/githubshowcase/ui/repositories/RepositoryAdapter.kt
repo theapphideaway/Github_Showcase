@@ -9,7 +9,7 @@ import com.ianschoenrock.githubshowcase.ui.followers.FollowersViewHolder
 import com.ianschoenrock.networking.models.Item
 import com.ianschoenrock.networking.models.followers.Follower
 
-class RepositoryAdapter(val viewModel: RepositoriesViewModel): RecyclerView.Adapter<RepositoryViewHolder>() {
+class RepositoryAdapter(private val viewModel: RepositoriesViewModel): RecyclerView.Adapter<RepositoryViewHolder>() {
 
     var repositoryList = listOf<Item>()
 

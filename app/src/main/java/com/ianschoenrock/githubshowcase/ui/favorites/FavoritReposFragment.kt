@@ -8,9 +8,6 @@ import android.view.ViewGroup
 
 import com.ianschoenrock.githubshowcase.R
 
-/**
- * A simple [Fragment] subclass.
- */
 class FavoritReposFragment : Fragment() {
 
     override fun onCreateView(
