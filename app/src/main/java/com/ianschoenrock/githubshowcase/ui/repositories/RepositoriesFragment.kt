@@ -14,7 +14,7 @@ import com.ianschoenrock.githubshowcase.R
 
 class RepositoriesFragment : Fragment() {
 
-    private lateinit var repositoriesViewModel: RepositoriesViewModel
+    lateinit var repositoriesViewModel: RepositoriesViewModel
     private lateinit var recyclerView: RecyclerView
 
     override fun onCreateView(
@@ -26,13 +26,12 @@ class RepositoriesFragment : Fragment() {
             recyclerView = findViewById(R.id.repository_rv)
             initializeRepositoryList()
         }
-
     }
 
     private fun initializeRepositoryList(){
 
         repositoriesViewModel = ViewModelProvider(this@RepositoriesFragment).get(RepositoriesViewModel::class.java)
-        val baseAdapter = RepositoryAdapter()
+        val baseAdapter = RepositoryAdapter(repositoriesViewModel)
         recyclerView.adapter = baseAdapter
         recyclerView.layoutManager = LinearLayoutManager(context)
         repositoriesViewModel.repositories.observe(viewLifecycleOwner, Observer{repos ->

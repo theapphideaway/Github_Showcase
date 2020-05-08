@@ -5,9 +5,11 @@ import com.ianschoenrock.githubshowcase.R
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.ianschoenrock.githubshowcase.ui.followers.FollowersViewHolder
 import com.ianschoenrock.networking.models.Item
+import com.ianschoenrock.networking.models.followers.Follower
 
-class RepositoryAdapter: RecyclerView.Adapter<RepositoryViewHolder>() {
+class RepositoryAdapter(val viewModel: RepositoriesViewModel): RecyclerView.Adapter<RepositoryViewHolder>() {
 
     var repositoryList = listOf<Item>()
 
@@ -19,7 +21,7 @@ class RepositoryAdapter: RecyclerView.Adapter<RepositoryViewHolder>() {
     override fun getItemCount()= repositoryList.count()
 
     override fun onBindViewHolder(holder: RepositoryViewHolder, position: Int) {
-        holder.setData(repositoryList[position])
+        holder.setData(repositoryList[position], viewModel)
         holder.itemView.setOnClickListener {
             println("You clicked: $position")
         }
@@ -29,4 +31,5 @@ class RepositoryAdapter: RecyclerView.Adapter<RepositoryViewHolder>() {
         repositoryList = repositories
         notifyDataSetChanged()
     }
+
 }
