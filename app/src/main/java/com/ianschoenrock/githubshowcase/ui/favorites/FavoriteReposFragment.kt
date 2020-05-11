@@ -14,7 +14,7 @@ class FavoriteReposFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_favorit_repos, container, false)
+        return inflater.inflate(R.layout.fragment_favorite_repos, container, false)
     }
 
 }
